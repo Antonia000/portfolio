@@ -80,7 +80,7 @@ export class ProjectService {
       id: 5,
       title: 'Weather Dashboard',
       description:
-        'A beautiful weather dashboard with real-time data, charts, and location-based forecasts.',
+        'A simple weather dashboard with real-time data, charts, and location-based forecasts.',
       technologies: [
         'Angular',
         'Chart.js',

@@ -42,7 +42,9 @@ import { RouterLink } from '@angular/router';
           >
             Skills & Technologies
           </h2>
-          <div class="grid grid-cols-1 gap-8">
+          <div
+            style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;"
+          >
             <div style="text-align: center;">
               <div
                 style="background-color: var(--skill-bg-frontend); width: 4rem; height: 4rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;"
@@ -140,13 +142,15 @@ import { RouterLink } from '@angular/router';
             Featured Projects
           </h2>
           <div class="grid grid-cols-1 gap-8">
+            @for (featuredProject of featuredProjects(); track
+            featuredProject.id) {
             <div
               style="background: var(--white); border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray); overflow: hidden;"
             >
               <div
                 style="
                   height: 12rem; 
-                  background-image: url('weather-alerts.png');
+                  background-image: url('/{{ featuredProject.image }}');
                   background-size: cover;
                   background-position: center;
                   background-repeat: no-repeat;
@@ -189,7 +193,7 @@ import { RouterLink } from '@angular/router';
                       text-shadow: 0 2px 4px var(--project-text-shadow);
                     "
                   >
-                    Weather Alerts
+                    {{ featuredProject.title }}
                   </h4>
                   <p
                     style="
@@ -198,7 +202,7 @@ import { RouterLink } from '@angular/router';
                       text-shadow: 0 1px 2px var(--project-text-shadow);
                     "
                   >
-                    Real-time weather monitoring
+                    {{ featuredProject.description }}
                   </p>
                 </div>
               </div>
@@ -206,29 +210,20 @@ import { RouterLink } from '@angular/router';
                 <h3
                   style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 0.5rem;"
                 >
-                  Weather Alerts Application
+                  {{ featuredProject.title }}
                 </h3>
                 <p style="color: var(--light-text-color); margin-bottom: 1rem;">
-                  A lightweight, real-time alert system using live
-                  meteorological APIs to deliver location-based severe weather
-                  alerts, weather forecasts, and customizable thresholds for
-                  critical conditions.
+                  {{ featuredProject.description }}
                 </p>
                 <div
                   style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;"
                 >
+                  @for (tech of featuredProject.technologies; track tech) {
                   <span
                     style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-angular-bg); color: var(--project-tag-angular-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >Angular</span
+                    >{{ tech }}</span
                   >
-                  <span
-                    style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-nestjs-bg); color: var(--project-tag-nestjs-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >Nest.js</span
-                  >
-                  <span
-                    style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-firebase-bg); color: var(--project-tag-firebase-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >Firebase Firestore</span
-                  >
+                  }
                 </div>
                 <a
                   routerLink="/projects"
@@ -238,96 +233,7 @@ import { RouterLink } from '@angular/router';
                 </a>
               </div>
             </div>
-
-            <div
-              style="background: var(--white); border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray); overflow: hidden;"
-            >
-              <div
-                style="background-color: var(--project-image-placeholder-bg); height: 12rem; display: flex; align-items: center; justify-content: center;"
-              >
-                <span style="color: var(--project-image-placeholder-text);"
-                  >Project Image</span
-                >
-              </div>
-              <div style="padding: 1.5rem;">
-                <h3
-                  style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 0.5rem;"
-                >
-                  Task Management App
-                </h3>
-                <p style="color: var(--light-text-color); margin-bottom: 1rem;">
-                  A collaborative task management application with real-time
-                  updates
-                </p>
-                <div
-                  style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;"
-                >
-                  <span
-                    style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-angular-bg); color: var(--project-tag-angular-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >React</span
-                  >
-                  <span
-                    style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-nestjs-bg); color: var(--project-tag-nestjs-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >Express</span
-                  >
-                  <span
-                    style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-firebase-bg); color: var(--project-tag-firebase-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >Socket.io</span
-                  >
-                </div>
-                <a
-                  routerLink="/projects"
-                  style="color: var(--primary-blue); font-weight: 600; text-decoration: none;"
-                >
-                  View Project →
-                </a>
-              </div>
-            </div>
-
-            <div
-              style="background: var(--white); border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray); overflow: hidden;"
-            >
-              <div
-                style="background-color: var(--project-image-placeholder-bg); height: 12rem; display: flex; align-items: center; justify-content: center;"
-              >
-                <span style="color: var(--project-image-placeholder-text);"
-                  >Project Image</span
-                >
-              </div>
-              <div style="padding: 1.5rem;">
-                <h3
-                  style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 0.5rem;"
-                >
-                  Portfolio Website
-                </h3>
-                <p style="color: var(--light-text-color); margin-bottom: 1rem;">
-                  A modern, responsive portfolio built with Angular and Tailwind
-                  CSS
-                </p>
-                <div
-                  style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;"
-                >
-                  <span
-                    style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-angular-bg); color: var(--project-tag-angular-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >Angular</span
-                  >
-                  <span
-                    style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-nestjs-bg); color: var(--project-tag-nestjs-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >Tailwind CSS</span
-                  >
-                  <span
-                    style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-firebase-bg); color: var(--project-tag-firebase-color); font-size: 0.875rem; border-radius: 9999px;"
-                    >TypeScript</span
-                  >
-                </div>
-                <a
-                  routerLink="/projects"
-                  style="color: var(--primary-blue); font-weight: 600; text-decoration: none;"
-                >
-                  View Project →
-                </a>
-              </div>
-            </div>
+            }
           </div>
           <div style="text-align: center; margin-top: 3rem;">
             <a routerLink="/projects" class="btn btn-primary">
@@ -348,22 +254,6 @@ export class Home {
         'A lightweight, real-time alert system using live meteorological APIs to deliver location-based severe weather alerts, weather forecasts, and customizable thresholds for critical conditions.',
       technologies: ['Angular', 'Nest.js', 'Firebase Firestore'],
       image: 'weather-alerts.png',
-    },
-    {
-      id: 2,
-      title: 'Task Management App',
-      description:
-        'A collaborative task management application with real-time updates',
-      technologies: ['React', 'Express', 'Socket.io'],
-      image: 'assets/images/project2.jpg',
-    },
-    {
-      id: 3,
-      title: 'Portfolio Website',
-      description:
-        'A modern, responsive portfolio built with Angular and Tailwind CSS',
-      technologies: ['Angular', 'Tailwind CSS', 'TypeScript'],
-      image: 'assets/images/project3.jpg',
     },
   ]);
 }

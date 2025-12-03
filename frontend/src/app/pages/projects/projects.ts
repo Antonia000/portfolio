@@ -1,4 +1,5 @@
 import { Component, signal, computed } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 interface Project {
   id: number;
@@ -13,6 +14,7 @@ interface Project {
 
 @Component({
   selector: 'app-projects',
+  imports: [NgOptimizedImage],
   template: `
     <div
       style="min-height: 100vh; background-color: var(--bg-gray-50); padding: 5rem 0;"
@@ -105,11 +107,63 @@ interface Project {
             style="background: var(--white); border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray); overflow: hidden; transition: all 0.3s;"
           >
             <div
-              style="background-color: var(--project-image-placeholder-bg); height: 12rem; display: flex; align-items: center; justify-content: center;"
+              style="
+                height: 12rem;
+                background-image: url('/{{ project.image }}');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
             >
-              <span style="color: var(--project-image-placeholder-text);">{{
-                project.title
-              }}</span>
+              <!-- Cool overlay -->
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background: linear-gradient(135deg,
+                    var(--project-overlay-blue-start) 0%,
+                    var(--project-overlay-blue-mid) 50%,
+                    var(--project-overlay-white-end) 100%);
+                  backdrop-filter: blur(1px);
+                "
+              ></div>
+
+              <!-- Content overlay -->
+              <div
+                style="
+                  position: relative;
+                  z-index: 1;
+                  text-align: center;
+                  color: var(--white);
+                "
+              >
+                <h4
+                  style="
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                    text-shadow: 0 2px 4px var(--project-text-shadow);
+                  "
+                >
+                  {{ project.title }}
+                </h4>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    opacity: 0.9;
+                    text-shadow: 0 1px 2px var(--project-text-shadow);
+                  "
+                >
+                  {{ project.description }}
+                </p>
+              </div>
             </div>
             <div style="padding: 1.5rem;">
               <h3
@@ -184,74 +238,20 @@ export class Projects {
 
   protected readonly projects = signal<Project[]>([
     {
-      id: 1,
-      title: 'E-Commerce Platform',
-      description:
-        'A full-stack e-commerce solution with user authentication, product management, shopping cart, and payment integration.',
-      technologies: ['Angular', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
-      image: 'assets/images/project1.jpg',
-      githubUrl: 'https://github.com/username/ecommerce',
-      liveUrl: 'https://ecommerce-demo.com',
-      category: 'fullstack',
-    },
-    {
-      id: 2,
-      title: 'Task Management App',
-      description:
-        'A collaborative task management application with real-time updates, team collaboration, and progress tracking.',
-      technologies: ['React', 'Node.js', 'Express', 'Socket.io', 'PostgreSQL'],
-      image: 'assets/images/project2.jpg',
-      githubUrl: 'https://github.com/username/task-manager',
-      liveUrl: 'https://task-manager-demo.com',
-      category: 'fullstack',
-    },
-    {
-      id: 3,
-      title: 'Portfolio Website',
-      description:
-        'A modern, responsive portfolio website built with Angular and Tailwind CSS, featuring smooth animations.',
-      technologies: ['Angular', 'Tailwind CSS', 'TypeScript', 'GSAP'],
-      image: 'assets/images/project3.jpg',
-      githubUrl: 'https://github.com/username/portfolio',
-      liveUrl: 'https://portfolio-demo.com',
-      category: 'frontend',
-    },
-    {
-      id: 4,
-      title: 'REST API Service',
-      description:
-        'A scalable REST API service with authentication, rate limiting, and comprehensive documentation.',
-      technologies: ['Node.js', 'Express', 'JWT', 'Redis', 'Swagger'],
-      image: 'assets/images/project4.jpg',
-      githubUrl: 'https://github.com/username/api-service',
-      category: 'backend',
-    },
-    {
       id: 5,
       title: 'Weather Dashboard',
       description:
-        'A beautiful weather dashboard with real-time data, charts, and location-based forecasts.',
+        'A simple weather dashboard with real-time data, charts, and location-based forecasts.',
       technologies: [
         'Angular',
         'Chart.js',
         'OpenWeather API',
         'Geolocation API',
       ],
-      image: 'assets/images/project5.jpg',
-      githubUrl: 'https://github.com/username/weather-dashboard',
-      liveUrl: 'https://weather-demo.com',
+      image: 'weather-alerts.png',
+      githubUrl: 'https://github.com/Antonia000',
+      liveUrl: 'https://avertizari-meteo.ro',
       category: 'frontend',
-    },
-    {
-      id: 6,
-      title: 'Chat Application',
-      description:
-        'A real-time chat application with private messaging, group chats, and file sharing capabilities.',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'AWS S3'],
-      image: 'assets/images/project6.jpg',
-      githubUrl: 'https://github.com/username/chat-app',
-      liveUrl: 'https://chat-demo.com',
-      category: 'fullstack',
     },
   ]);
 
