@@ -7,7 +7,7 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [RouterLink, RouterLinkActive, NgOptimizedImage],
   template: `
     <header
-      style="background: var(--white); box-shadow: 0 1px 3px 0 var(--shadow-gray); border-bottom: 1px solid var(--border-gray);"
+      style="background: var(--white); box-shadow: 0 1px 3px 0 var(--shadow-gray); border-bottom: 1px solid var(--border-gray); position: sticky; top: 0; z-index: 1000;"
     >
       <nav class="container">
         <div
@@ -18,8 +18,8 @@ import { NgOptimizedImage } from '@angular/common';
               <img
                 ngSrc="/LOGO.png"
                 alt="Logo"
-                width="50"
-                height="50"
+                width="35"
+                height="35"
                 priority
                 style="height: auto;"
               />
