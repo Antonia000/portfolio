@@ -20,17 +20,19 @@ interface Education {
 @Component({
   selector: 'app-about',
   template: `
-    <div style="min-height: 100vh; background-color: #f9fafb; padding: 5rem 0;">
+    <div
+      style="min-height: 100vh; background-color: var(--bg-gray-50); padding: 5rem 0;"
+    >
       <div class="container">
         <!-- Header -->
         <div class="text-center mb-8">
           <h1
-            style="font-size: 2.25rem; font-weight: 700; color: #111827; margin-bottom: 1rem;"
+            style="font-size: 2.25rem; font-weight: 700; color: var(--dark-text-color); margin-bottom: 1rem;"
           >
             About Me
           </h1>
           <p
-            style="font-size: 1.25rem; color: #4b5563; max-width: 48rem; margin: 0 auto;"
+            style="font-size: 1.25rem; color: var(--light-text-color); max-width: 48rem; margin: 0 auto;"
           >
             I'm a passionate full-stack developer with a love for creating
             innovative web solutions and solving complex problems through clean,
@@ -44,24 +46,24 @@ interface Education {
         >
           <div>
             <h2
-              style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1.5rem;"
+              style="font-size: 1.5rem; font-weight: 700; color: var(--dark-text-color); margin-bottom: 1.5rem;"
             >
               Who I Am
             </h2>
             <div style="margin-bottom: 1rem;">
-              <p style="color: #4b5563; margin-bottom: 1rem;">
+              <p style="color: var(--light-text-color); margin-bottom: 1rem;">
                 Hello! I'm Nicoleta Antonia, a dedicated software developer with
                 a passion for building web applications that make a difference.
                 I believe in writing clean, maintainable code and creating user
                 experiences that are both beautiful and functional.
               </p>
-              <p style="color: #4b5563; margin-bottom: 1rem;">
+              <p style="color: var(--light-text-color); margin-bottom: 1rem;">
                 My journey in software development started with a curiosity
                 about how websites work, which quickly evolved into a passion
                 for creating them. I love learning new technologies and
                 approaches, and I'm always excited to take on new challenges.
               </p>
-              <p style="color: #4b5563; margin-bottom: 1rem;">
+              <p style="color: var(--light-text-color); margin-bottom: 1rem;">
                 When I'm not coding, you can find me exploring new technologies,
                 contributing to open-source projects, or sharing knowledge with
                 the developer community.
@@ -70,10 +72,10 @@ interface Education {
           </div>
 
           <div
-            style="background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+            style="background: var(--white); padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray);"
           >
             <h3
-              style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 1rem;"
+              style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 1rem;"
             >
               Quick Facts
             </h3>
@@ -81,25 +83,25 @@ interface Education {
               <div
                 style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;"
               >
-                <span style="color: #4b5563;">Location:</span>
+                <span style="color: var(--light-text-color);">Location:</span>
                 <span style="font-weight: 500;">Your City, Country</span>
               </div>
               <div
                 style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;"
               >
-                <span style="color: #4b5563;">Experience:</span>
+                <span style="color: var(--light-text-color);">Experience:</span>
                 <span style="font-weight: 500;">3+ Years</span>
               </div>
               <div
                 style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;"
               >
-                <span style="color: #4b5563;">Languages:</span>
+                <span style="color: var(--light-text-color);">Languages:</span>
                 <span style="font-weight: 500;">English, Romanian</span>
               </div>
               <div
                 style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;"
               >
-                <span style="color: #4b5563;">Interests:</span>
+                <span style="color: var(--light-text-color);">Interests:</span>
                 <span style="font-weight: 500;">Web Dev, AI, Open Source</span>
               </div>
             </div>
@@ -109,40 +111,40 @@ interface Education {
         <!-- Experience -->
         <div style="margin-bottom: 5rem;">
           <h2
-            style="font-size: 1.875rem; font-weight: 700; text-align: center; color: #111827; margin-bottom: 3rem;"
+            style="font-size: 1.875rem; font-weight: 700; text-align: center; color: var(--dark-text-color); margin-bottom: 3rem;"
           >
             Work Experience
           </h2>
           <div style="margin-bottom: 2rem;">
             @for (exp of experience(); track exp.id) {
             <div
-              style="background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 2rem;"
+              style="background: var(--white); padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray); margin-bottom: 2rem;"
             >
               <div
                 style="display: flex; flex-direction: column; margin-bottom: 1rem;"
               >
                 <div>
                   <h3
-                    style="font-size: 1.25rem; font-weight: 600; color: #111827;"
+                    style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color);"
                   >
                     {{ exp.position }}
                   </h3>
-                  <p style="color: #2563eb; font-weight: 500;">
+                  <p style="color: var(--primary-blue); font-weight: 500;">
                     {{ exp.company }}
                   </p>
                 </div>
                 <span
-                  style="color: #6b7280; font-size: 0.875rem; margin-top: 0.5rem;"
+                  style="color: var(--project-image-placeholder-text); font-size: 0.875rem; margin-top: 0.5rem;"
                   >{{ exp.duration }}</span
                 >
               </div>
-              <p style="color: #4b5563; margin-bottom: 1rem;">
+              <p style="color: var(--light-text-color); margin-bottom: 1rem;">
                 {{ exp.description }}
               </p>
               <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                 @for (tech of exp.technologies; track tech) {
                 <span
-                  style="padding: 0.25rem 0.75rem; background-color: #dbeafe; color: #1e40af; font-size: 0.875rem; border-radius: 9999px;"
+                  style="padding: 0.25rem 0.75rem; background-color: var(--project-tag-angular-bg); color: var(--project-tag-angular-color); font-size: 0.875rem; border-radius: 9999px;"
                   >{{ tech }}</span
                 >
                 }
@@ -155,31 +157,33 @@ interface Education {
         <!-- Education -->
         <div style="margin-bottom: 5rem;">
           <h2
-            style="font-size: 1.875rem; font-weight: 700; text-align: center; color: #111827; margin-bottom: 3rem;"
+            style="font-size: 1.875rem; font-weight: 700; text-align: center; color: var(--dark-text-color); margin-bottom: 3rem;"
           >
             Education
           </h2>
           <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
             @for (edu of education(); track edu.id) {
             <div
-              style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+              style="background: var(--white); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray);"
             >
               <h3
-                style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;"
+                style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 0.5rem;"
               >
                 {{ edu.degree }}
               </h3>
               <p
-                style="color: #2563eb; font-weight: 500; margin-bottom: 0.5rem;"
+                style="color: var(--primary-blue); font-weight: 500; margin-bottom: 0.5rem;"
               >
                 {{ edu.institution }}
               </p>
               <p
-                style="color: #6b7280; font-size: 0.875rem; margin-bottom: 0.75rem;"
+                style="color: var(--project-image-placeholder-text); font-size: 0.875rem; margin-bottom: 0.75rem;"
               >
                 {{ edu.year }}
               </p>
-              <p style="color: #4b5563;">{{ edu.description }}</p>
+              <p style="color: var(--light-text-color);">
+                {{ edu.description }}
+              </p>
             </div>
             }
           </div>
@@ -188,16 +192,16 @@ interface Education {
         <!-- Skills -->
         <div style="margin-bottom: 5rem;">
           <h2
-            style="font-size: 1.875rem; font-weight: 700; text-align: center; color: #111827; margin-bottom: 3rem;"
+            style="font-size: 1.875rem; font-weight: 700; text-align: center; color: var(--dark-text-color); margin-bottom: 3rem;"
           >
             Technical Skills
           </h2>
           <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
             <div
-              style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+              style="background: var(--white); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray);"
             >
               <h3
-                style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 1rem; text-align: center;"
+                style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 1rem; text-align: center;"
               >
                 Frontend
               </h3>
@@ -205,48 +209,50 @@ interface Education {
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">Angular</span>
+                  <span style="color: var(--light-text-color);">Angular</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #2563eb; height: 0.5rem; border-radius: 9999px; width: 90%;"
+                      style="background-color: var(--primary-blue); height: 0.5rem; border-radius: 9999px; width: 90%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">React</span>
+                  <span style="color: var(--light-text-color);">React</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #2563eb; height: 0.5rem; border-radius: 9999px; width: 85%;"
+                      style="background-color: var(--primary-blue); height: 0.5rem; border-radius: 9999px; width: 85%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">TypeScript</span>
+                  <span style="color: var(--light-text-color);"
+                    >TypeScript</span
+                  >
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #2563eb; height: 0.5rem; border-radius: 9999px; width: 95%;"
+                      style="background-color: var(--primary-blue); height: 0.5rem; border-radius: 9999px; width: 95%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">CSS/SCSS</span>
+                  <span style="color: var(--light-text-color);">CSS/SCSS</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #2563eb; height: 0.5rem; border-radius: 9999px; width: 88%;"
+                      style="background-color: var(--primary-blue); height: 0.5rem; border-radius: 9999px; width: 88%;"
                     ></div>
                   </div>
                 </div>
@@ -254,10 +260,10 @@ interface Education {
             </div>
 
             <div
-              style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+              style="background: var(--white); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray);"
             >
               <h3
-                style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 1rem; text-align: center;"
+                style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 1rem; text-align: center;"
               >
                 Backend
               </h3>
@@ -265,48 +271,48 @@ interface Education {
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">Node.js</span>
+                  <span style="color: var(--light-text-color);">Node.js</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #16a34a; height: 0.5rem; border-radius: 9999px; width: 85%;"
+                      style="background-color: var(--skill-color-backend); height: 0.5rem; border-radius: 9999px; width: 85%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">Express</span>
+                  <span style="color: var(--light-text-color);">Express</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #16a34a; height: 0.5rem; border-radius: 9999px; width: 80%;"
+                      style="background-color: var(--skill-color-backend); height: 0.5rem; border-radius: 9999px; width: 80%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">Python</span>
+                  <span style="color: var(--light-text-color);">Python</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #16a34a; height: 0.5rem; border-radius: 9999px; width: 75%;"
+                      style="background-color: var(--skill-color-backend); height: 0.5rem; border-radius: 9999px; width: 75%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">Java</span>
+                  <span style="color: var(--light-text-color);">Java</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #16a34a; height: 0.5rem; border-radius: 9999px; width: 70%;"
+                      style="background-color: var(--skill-color-backend); height: 0.5rem; border-radius: 9999px; width: 70%;"
                     ></div>
                   </div>
                 </div>
@@ -314,10 +320,10 @@ interface Education {
             </div>
 
             <div
-              style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+              style="background: var(--white); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray);"
             >
               <h3
-                style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 1rem; text-align: center;"
+                style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 1rem; text-align: center;"
               >
                 Tools & Others
               </h3>
@@ -325,48 +331,48 @@ interface Education {
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">Git</span>
+                  <span style="color: var(--light-text-color);">Git</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #9333ea; height: 0.5rem; border-radius: 9999px; width: 90%;"
+                      style="background-color: var(--skill-color-database); height: 0.5rem; border-radius: 9999px; width: 90%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">Docker</span>
+                  <span style="color: var(--light-text-color);">Docker</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #9333ea; height: 0.5rem; border-radius: 9999px; width: 75%;"
+                      style="background-color: var(--skill-color-database); height: 0.5rem; border-radius: 9999px; width: 75%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">AWS</span>
+                  <span style="color: var(--light-text-color);">AWS</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #9333ea; height: 0.5rem; border-radius: 9999px; width: 70%;"
+                      style="background-color: var(--skill-color-database); height: 0.5rem; border-radius: 9999px; width: 70%;"
                     ></div>
                   </div>
                 </div>
                 <div
                   style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;"
                 >
-                  <span style="color: #4b5563;">CI/CD</span>
+                  <span style="color: var(--light-text-color);">CI/CD</span>
                   <div
-                    style="width: 6rem; background-color: #e5e7eb; border-radius: 9999px; height: 0.5rem;"
+                    style="width: 6rem; background-color: var(--skill-progress-bar-bg); border-radius: 9999px; height: 0.5rem;"
                   >
                     <div
-                      style="background-color: #9333ea; height: 0.5rem; border-radius: 9999px; width: 80%;"
+                      style="background-color: var(--skill-color-database); height: 0.5rem; border-radius: 9999px; width: 80%;"
                     ></div>
                   </div>
                 </div>
@@ -378,11 +384,11 @@ interface Education {
         <!-- Call to Action -->
         <div style="text-align: center;">
           <h2
-            style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;"
+            style="font-size: 1.5rem; font-weight: 700; color: var(--dark-text-color); margin-bottom: 1rem;"
           >
             Interested in working together?
           </h2>
-          <p style="color: #4b5563; margin-bottom: 2rem;">
+          <p style="color: var(--light-text-color); margin-bottom: 2rem;">
             Let's discuss how I can help bring your ideas to life.
           </p>
           <a routerLink="/contact" class="btn btn-primary"> Get In Touch </a>

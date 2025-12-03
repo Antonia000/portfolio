@@ -3,76 +3,43 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-footer',
   template: `
-    <footer style="background-color: #111827; color: white; padding: 3rem 0;">
+    <footer
+      style="background-color: var(--dark-text-color); color: var(--white); padding: 2rem 0;"
+    >
       <div class="container">
-        <div class="grid grid-cols-1 gap-8">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;"
+        >
           <div>
             <h3
-              style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;"
+              style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;"
             >
               Nicoleta Antonia
             </h3>
-            <p style="color: #d1d5db;">
-              Full-stack developer passionate about creating innovative web
+            <p style="color: var(--light-gray-text); font-size: 0.875rem;">
+              Software Engineer passionate about creating innovative web
               solutions.
             </p>
           </div>
           <div>
             <h3
-              style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;"
-            >
-              Quick Links
-            </h3>
-            <ul style="margin: 0; padding: 0; list-style: none;">
-              <li style="margin-bottom: 0.5rem;">
-                <a
-                  href="/"
-                  style="color: #d1d5db; text-decoration: none; transition: color 0.2s;"
-                  >Home</a
-                >
-              </li>
-              <li style="margin-bottom: 0.5rem;">
-                <a
-                  href="/projects"
-                  style="color: #d1d5db; text-decoration: none; transition: color 0.2s;"
-                  >Projects</a
-                >
-              </li>
-              <li style="margin-bottom: 0.5rem;">
-                <a
-                  href="/about"
-                  style="color: #d1d5db; text-decoration: none; transition: color 0.2s;"
-                  >About</a
-                >
-              </li>
-              <li style="margin-bottom: 0.5rem;">
-                <a
-                  href="/contact"
-                  style="color: #d1d5db; text-decoration: none; transition: color 0.2s;"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3
-              style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;"
+              style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;"
             >
               Connect
             </h3>
             <div style="display: flex; gap: 1rem;">
               <a
-                href="https://github.com"
+                href="https://github.com/Antonia000"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="color: #d1d5db; transition: color 0.2s;"
+                style="color: var(--light-gray-text); transition: color 0.2s;"
               >
                 <span
                   style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;"
                   >GitHub</span
                 >
                 <svg
-                  style="width: 1.5rem; height: 1.5rem;"
+                  style="width: 1.25rem; height: 1.25rem;"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -82,17 +49,17 @@ import { Component } from '@angular/core';
                 </svg>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/antonia-nicolae-b81a9a20a"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="color: #d1d5db; transition: color 0.2s;"
+                style="color: var(--light-gray-text); transition: color 0.2s;"
               >
                 <span
                   style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;"
                   >LinkedIn</span
                 >
                 <svg
-                  style="width: 1.5rem; height: 1.5rem;"
+                  style="width: 1.25rem; height: 1.25rem;"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -105,9 +72,9 @@ import { Component } from '@angular/core';
           </div>
         </div>
         <div
-          style="border-top: 1px solid #374151; margin-top: 2rem; padding-top: 2rem; text-align: center; color: #d1d5db;"
+          style="border-top: 1px solid var(--text-gray); margin-top: 1.5rem; padding-top: 1.5rem; text-align: center; color: var(--light-gray-text); font-size: 0.875rem;"
         >
-          <p>&copy; 2024 Nicoleta Antonia. All rights reserved.</p>
+          <p>&copy; All rights reserved</p>
         </div>
       </div>
     </footer>
@@ -115,7 +82,7 @@ import { Component } from '@angular/core';
   styles: [
     `
       a:hover {
-        color: white !important;
+        color: var(--white) !important;
       }
     `,
   ],

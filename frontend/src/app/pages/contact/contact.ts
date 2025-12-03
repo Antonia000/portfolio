@@ -10,17 +10,19 @@ import {
   selector: 'app-contact',
   imports: [ReactiveFormsModule],
   template: `
-    <div style="min-height: 100vh; background-color: #f9fafb; padding: 5rem 0;">
+    <div
+      style="min-height: 100vh; background-color: var(--bg-gray-50); padding: 5rem 0;"
+    >
       <div class="container">
         <!-- Header -->
         <div class="text-center mb-8">
           <h1
-            style="font-size: 2.25rem; font-weight: 700; color: #111827; margin-bottom: 1rem;"
+            style="font-size: 2.25rem; font-weight: 700; color: var(--dark-text-color); margin-bottom: 1rem;"
           >
             Get In Touch
           </h1>
           <p
-            style="font-size: 1.25rem; color: #4b5563; max-width: 42rem; margin: 0 auto;"
+            style="font-size: 1.25rem; color: var(--light-text-color); max-width: 42rem; margin: 0 auto;"
           >
             I'm always interested in hearing about new opportunities and
             exciting projects. Feel free to reach out if you'd like to
@@ -31,10 +33,10 @@ import {
         <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
           <!-- Contact Form -->
           <div
-            style="background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+            style="background: var(--white); padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px var(--shadow-gray);"
           >
             <h2
-              style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1.5rem;"
+              style="font-size: 1.5rem; font-weight: 700; color: var(--dark-text-color); margin-bottom: 1.5rem;"
             >
               Send a Message
             </h2>
@@ -56,7 +58,7 @@ import {
                 @if (contactForm.get('name')?.invalid &&
                 contactForm.get('name')?.touched) {
                 <p
-                  style="color: #dc2626; font-size: 0.875rem; margin-top: 0.25rem;"
+                  style="color: var(--error-red); font-size: 0.875rem; margin-top: 0.25rem;"
                 >
                   Name is required
                 </p>
@@ -75,7 +77,7 @@ import {
                 @if (contactForm.get('email')?.invalid &&
                 contactForm.get('email')?.touched) {
                 <p
-                  style="color: #dc2626; font-size: 0.875rem; margin-top: 0.25rem;"
+                  style="color: var(--error-red); font-size: 0.875rem; margin-top: 0.25rem;"
                 >
                   Please enter a valid email address
                 </p>
@@ -94,7 +96,7 @@ import {
                 @if (contactForm.get('subject')?.invalid &&
                 contactForm.get('subject')?.touched) {
                 <p
-                  style="color: #dc2626; font-size: 0.875rem; margin-top: 0.25rem;"
+                  style="color: var(--error-red); font-size: 0.875rem; margin-top: 0.25rem;"
                 >
                   Subject is required
                 </p>
@@ -113,7 +115,7 @@ import {
                 @if (contactForm.get('message')?.invalid &&
                 contactForm.get('message')?.touched) {
                 <p
-                  style="color: #dc2626; font-size: 0.875rem; margin-top: 0.25rem;"
+                  style="color: var(--error-red); font-size: 0.875rem; margin-top: 0.25rem;"
                 >
                   Message is required
                 </p>
@@ -123,9 +125,11 @@ import {
               <button
                 type="submit"
                 [disabled]="contactForm.invalid || isSubmitting()"
-                style="width: 100%; background-color: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; border: none; cursor: pointer; transition: background-color 0.2s;"
+                style="width: 100%; background-color: var(--primary-blue); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; border: none; cursor: pointer; transition: background-color 0.2s;"
                 [style.background-color]="
-                  contactForm.invalid || isSubmitting() ? '#9ca3af' : '#2563eb'
+                  contactForm.invalid || isSubmitting()
+                    ? 'var(--disabled-button-bg)'
+                    : 'var(--primary-blue)'
                 "
                 [style.cursor]="
                   contactForm.invalid || isSubmitting()
@@ -141,10 +145,14 @@ import {
             <div
               style="margin-top: 1rem; padding: 1rem; border-radius: 0.5rem;"
               [style.background-color]="
-                submitStatus() === 'success' ? '#dcfce7' : '#fef2f2'
+                submitStatus() === 'success'
+                  ? 'var(--success-bg)'
+                  : 'var(--error-bg)'
               "
               [style.color]="
-                submitStatus() === 'success' ? '#166534' : '#dc2626'
+                submitStatus() === 'success'
+                  ? 'var(--success-color)'
+                  : 'var(--error-red)'
               "
             >
               @if (submitStatus() === 'success') { Thank you! Your message has
@@ -159,7 +167,7 @@ import {
           <div style="margin-bottom: 2rem;">
             <div style="margin-bottom: 2rem;">
               <h2
-                style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1.5rem;"
+                style="font-size: 1.5rem; font-weight: 700; color: var(--dark-text-color); margin-bottom: 1.5rem;"
               >
                 Contact Information
               </h2>
@@ -168,10 +176,10 @@ import {
                   style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"
                 >
                   <div
-                    style="background-color: #dbeafe; padding: 0.75rem; border-radius: 9999px;"
+                    style="background-color: var(--skill-bg-frontend); padding: 0.75rem; border-radius: 9999px;"
                   >
                     <svg
-                      style="width: 1.5rem; height: 1.5rem; color: #2563eb;"
+                      style="width: 1.5rem; height: 1.5rem; color: var(--primary-blue);"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -185,10 +193,12 @@ import {
                     </svg>
                   </div>
                   <div>
-                    <p style="font-weight: 500; color: #111827;">Email</p>
+                    <p style="font-weight: 500; color: var(--dark-text-color);">
+                      Email
+                    </p>
                     <a
                       href="mailto:hello@nicoletaantonia.com"
-                      style="color: #2563eb; text-decoration: none;"
+                      style="color: var(--primary-blue); text-decoration: none;"
                     >
                       hello@nicoletaantonia.com
                     </a>
@@ -199,10 +209,10 @@ import {
                   style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"
                 >
                   <div
-                    style="background-color: #dcfce7; padding: 0.75rem; border-radius: 9999px;"
+                    style="background-color: var(--skill-bg-backend); padding: 0.75rem; border-radius: 9999px;"
                   >
                     <svg
-                      style="width: 1.5rem; height: 1.5rem; color: #16a34a;"
+                      style="width: 1.5rem; height: 1.5rem; color: var(--skill-color-backend);"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -222,8 +232,12 @@ import {
                     </svg>
                   </div>
                   <div>
-                    <p style="font-weight: 500; color: #111827;">Location</p>
-                    <p style="color: #4b5563;">Your City, Country</p>
+                    <p style="font-weight: 500; color: var(--dark-text-color);">
+                      Location
+                    </p>
+                    <p style="color: var(--light-text-color);">
+                      Your City, Country
+                    </p>
                   </div>
                 </div>
 
@@ -231,10 +245,10 @@ import {
                   style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"
                 >
                   <div
-                    style="background-color: #f3e8ff; padding: 0.75rem; border-radius: 9999px;"
+                    style="background-color: var(--skill-bg-database); padding: 0.75rem; border-radius: 9999px;"
                   >
                     <svg
-                      style="width: 1.5rem; height: 1.5rem; color: #9333ea;"
+                      style="width: 1.5rem; height: 1.5rem; color: var(--skill-color-database);"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -248,10 +262,12 @@ import {
                     </svg>
                   </div>
                   <div>
-                    <p style="font-weight: 500; color: #111827;">
+                    <p style="font-weight: 500; color: var(--dark-text-color);">
                       Response Time
                     </p>
-                    <p style="color: #4b5563;">Usually within 24 hours</p>
+                    <p style="color: var(--light-text-color);">
+                      Usually within 24 hours
+                    </p>
                   </div>
                 </div>
               </div>
@@ -259,7 +275,7 @@ import {
 
             <div style="margin-bottom: 2rem;">
               <h3
-                style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 1rem;"
+                style="font-size: 1.25rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 1rem;"
               >
                 Connect on Social Media
               </h3>
@@ -268,7 +284,7 @@ import {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style="background-color: #111827; color: white; padding: 0.75rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s;"
+                  style="background-color: var(--dark-text-color); color: var(--white); padding: 0.75rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s;"
                 >
                   <svg
                     style="width: 1.5rem; height: 1.5rem;"
@@ -284,7 +300,7 @@ import {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style="background-color: #2563eb; color: white; padding: 0.75rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s;"
+                  style="background-color: var(--primary-blue); color: var(--white); padding: 0.75rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s;"
                 >
                   <svg
                     style="width: 1.5rem; height: 1.5rem;"
@@ -300,7 +316,7 @@ import {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style="background-color: #60a5fa; color: white; padding: 0.75rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s;"
+                  style="background-color: var(--social-media-twitter); color: var(--white); padding: 0.75rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s;"
                 >
                   <svg
                     style="width: 1.5rem; height: 1.5rem;"
@@ -316,19 +332,19 @@ import {
             </div>
 
             <div
-              style="background-color: #eff6ff; padding: 1.5rem; border-radius: 0.5rem;"
+              style="background-color: var(--light-blue-bg); padding: 1.5rem; border-radius: 0.5rem;"
             >
               <h3
-                style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.75rem;"
+                style="font-size: 1.125rem; font-weight: 600; color: var(--dark-text-color); margin-bottom: 0.75rem;"
               >
                 Let's Work Together!
               </h3>
-              <p style="color: #4b5563; margin-bottom: 1rem;">
+              <p style="color: var(--light-text-color); margin-bottom: 1rem;">
                 I'm currently available for freelance work and exciting
                 opportunities. Whether you have a project in mind or just want
                 to chat about technology, I'd love to hear from you.
               </p>
-              <p style="color: #4b5563;">
+              <p style="color: var(--light-text-color);">
                 <strong>Available for:</strong> Web Development, Consulting,
                 Open Source Collaboration
               </p>
@@ -341,7 +357,7 @@ import {
   styles: [
     `
       button:hover:not(:disabled) {
-        background-color: #1d4ed8 !important;
+        background-color: var(--button-hover-blue) !important;
       }
 
       a:hover {
